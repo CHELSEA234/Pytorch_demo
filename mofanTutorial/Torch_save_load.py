@@ -1,3 +1,8 @@
+"""""""""""""""""""""Sample 7"""""""""""""""""""""""""""
+"saving and restoring whole network or only parameters."
+"torch.save(net1.state_dict(), 'net_params.pkl'), load_state_dict"
+"torch.save(net1, 'net.pkl'), torch.load('net.pkl')"
+
 import torch
 from torch.autograd import Variable
 import matplotlib.pyplot as plt
@@ -36,7 +41,7 @@ def save():
 
 
     # 2 ways to save the net
-    torch.save(net1, 'net.pkl')  # save entire net
+    torch.save(net1, 'net.pkl')             # save entire net
     torch.save(net1.state_dict(), 'net_params.pkl')   # save only the parameters
     print (net1)
     print (*net1.parameters())

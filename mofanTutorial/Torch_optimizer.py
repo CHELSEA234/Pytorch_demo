@@ -1,3 +1,7 @@
+"""""""""""""""""""""Sample 4"""""""""""""""""""""""""""
+        "The key point is how to get the optimizer"
+
+
 import torch
 import torch.utils.data as Data
 import torch.nn.functional as F

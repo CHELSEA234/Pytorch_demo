@@ -1,3 +1,6 @@
+"""""""""""""""""""""Sample 5"""""""""""""""""""""""""""
+"The key point is that model will be different in training and testing"
+
 import torch
 from torch.autograd import Variable
 import matplotlib.pyplot as plt
@@ -69,7 +72,7 @@ for t in range(500):
 #     if t % 10 == 0:
 #         # change to eval mode in order to fix drop out effect
 #         net_overfitting.eval()
-#         net_dropped.eval()  # parameters for dropout differ from train mode
+#         net_dropped.eval()            # parameters for dropout differ from train mode
 
 #         # plotting
 #         plt.cla()

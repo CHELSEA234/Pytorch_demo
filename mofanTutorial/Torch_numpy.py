@@ -1,14 +1,17 @@
+"""""""""""""""""""""Sample 2"""""""""""""""""""""""""""
+	"This is about common conversions: "
+	"array/ list ==> Tensor ==> Variable"
+
 import torch
 import numpy as np
 import scipy
 import matplotlib.pyplot as plt
 from torch.autograd import Variable
 
-# In tensorflow, you will have placeholder/ tensor, then you do the calculation (sess)
-# In Torch, you just also use tensor holding value, you don't need sess.run and placeholder you can get result
+# In tensorflow, you will have placeholder/ tensor, then you do operations in sess. This is the static model.
+# In Torch, you just also use tensor holding value, you don't need sess.run and placeholder. This is the dynamic model.
 
 # Conversion is from numpy to tensor, from tensor to variable(with or without autograd)
-
 np_data = np.arange(6).reshape((2, 3))		# (2,3), ndarray
 torch_data = torch.from_numpy(np_data)      # this is a tensor, tensor and numpy can convert to each other
 											# torch.Size([2, 3]), <class 'torch.LongTensor'>

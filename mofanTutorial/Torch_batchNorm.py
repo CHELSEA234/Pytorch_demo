@@ -1,3 +1,5 @@
+"""""""""""""""""""""Sample 6"""""""""""""""""""""""""""
+"The key point is how to use batch normalization"
 
 import torch
 from torch.autograd import Variable
