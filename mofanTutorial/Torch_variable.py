@@ -24,7 +24,11 @@ print (v_out.size(), tensor.size())
 
 v_out.backward()
 print (variable.grad)
-# How is this mechanism applied onto loss and variables: https://jhui.github.io/2018/02/09/PyTorch-Variables-functionals-and-Autograd/
+# How is this mechanism applied onto loss and variables: 
+# https://jhui.github.io/2018/02/09/PyTorch-Variables-functionals-and-Autograd/
+
+# Think it in a simple way: output's derivative w.r.t variable with "requires_grad".
+# For example, v_out's dervative w.r.t variable; loss's dervative w.r.t network parameters. 
 
 """""""""""""""""""""Some examples"""""""""""""""""""""""""""
 print(variable.grad)
@@ -61,9 +65,13 @@ y = x + 2
 z = y * y * 3
 out = z.mean()
 
-out.backward()
+# out.backward(retain_graph=True)
+# We have the other backward below.
+out.backward(retain_graph=True)
 print (x.grad)
-print ("can't display grad on y and z")
+
+if y.grad == None and z.grad == None:
+	print ("can't display grad on y and z")
 
 
 """""""""""""""""""""how to access data"""""""""""""""""""""""""""
@@ -74,10 +82,11 @@ y = x * 2
 while y.data.norm() < 100:
     y = y * 2
 
+# print (y.grad)
+
 """""""""""""""""""""different backward"""""""""""""""""""""""""""
 out = z.mean()
 out.backward()    # Same as out.backward(torch.FloatTensor([1.0]))
 
 gradients = torch.FloatTensor([0.1, 1.0, 0.0001])
 y.backward(gradients)
-
